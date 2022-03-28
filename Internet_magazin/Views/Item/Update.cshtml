@@ -1,0 +1,70 @@
+﻿@model  Item
+
+<h2 class="mb-5">Изменение товара</h2>
+
+<div class="cotainer">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Update" asp-controller="Item">
+                        <input asp-for="Id" type="hidden" />
+                        <input asp-for="DateOfAdding" type="hidden" />
+                        <div class="form-group row ">
+                            <label asp-for="Name" for="name" class="col-md-4 col-form-label text-md-right">Наименование</label>
+                            <div class="col-md-6">
+                                <input asp-for="Name" type="text" id="name" class="form-control" name="name" required>
+                                
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+                            <label asp-for="Description" for="Description" class="col-md-4 col-form-label text-md-right">Описание</label>
+                            <div class="col-md-6">
+                                <input asp-for="Description" type="text" id="Description" class="form-control" name="Description" required>
+                                
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+                            <label asp-for="Manufacturer" for="Manufacturer" class="col-md-4 col-form-label text-md-right">Производитель</label>
+                            <div class="col-md-6">
+                                <input asp-for="Manufacturer" type="text" id="Manufacturer" class="form-control" name="Manufacturer" required>
+                                
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+                            <label asp-for="ImgPath" for="ImgPath" class="col-md-4 col-form-label text-md-right">Ссылка на картинку</label>
+                            <div class="col-md-6">
+                                <input asp-for="ImgPath" type="text" id="ImgPath" class="form-control" name="ImgPath" required>
+                                
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+                            <label asp-for="Count" for="Count" class="col-md-4 col-form-label text-md-right">Кол-во на складе</label>
+                            <div class="col-md-6">
+                                <input asp-for="Count" type="text" id="Count" class="form-control" name="Count" required>
+                                
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+                            <label asp-for="Price" for="Price" class="col-md-4 col-form-label text-md-right">Цена</label>
+                            <div class="col-md-6">
+                                <input asp-for="Price" type="text" id="Price" class="form-control" name="Price" required>
+                                
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+                            <label asp-for="SubDivisionId" for="SubDivisionId" class="col-md-4 col-form-label text-md-right">Подраздел</label>
+                            <div class="col-md-6">
+                                <select asp-for="SubDivisionId" id="SubDivisionId" class="form-control" name="SubDivisionId" asp-items="ViewBag.SubDivisions" required></select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-primary">Изменить товар</button>
+                            <a class="btn-danger" asp-action="Details" asp-controller="Item" asp-route-Id=@Model.Id>Отмена</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

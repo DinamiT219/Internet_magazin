@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ItemInCart>
+<div>
+    @if (Model != null)
+    {
+        @foreach (var itemInCart in Model)
+        {
+            <div class="row mb-2">
+                <div class="col-2" align="left">
+                    <a asp-controller="Item"
+                       asp-action="Details"
+                       asp-route-Id=@itemInCart.ItemId>
+                        <img src=@itemInCart.Item.ImgPath height="150px"/>
+                    </a>
+                </div>
+                <div class="col-5" align="left">
+                    <a asp-controller="Item"
+                       asp-action="Details"
+                       asp-route-Id=@itemInCart.ItemId>
+                        <h1>
+                            @itemInCart.Item.Name
+                        </h1>
+                    </a>
+                </div>
+                <div class="col-2" align="left">
+                    <h1>@itemInCart.Item.Price</h1>
+                </div>
+                <div class="col-2" align="left">
+                    <h1>@itemInCart.Count</h1>
+                </div>
+                <div class="row mb-2">
+                    <a class="btn-success p-2 rounded"
+                       asp-controller="ItemInCart"
+                       asp-action="Delete"
+                       asp-route-id=@itemInCart.Id>
+                        Удалить
+                    </a>
+                    по 1 шт.
+                </div>
+            </div>
+        }
+    }
+</div>

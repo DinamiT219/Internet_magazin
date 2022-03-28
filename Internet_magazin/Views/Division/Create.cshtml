@@ -1,0 +1,26 @@
+﻿@model Division
+
+<h2 class="mb-5">Создание категории</h2>
+
+<div class="cotainer">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Create" asp-controller="Division" />
+                    <div class="form-group row ">
+                        <label asp-for="Name" for="name" class="col-md-4 col-form-label text-md-right">Имя</label>
+                        <div class="col-md-6">
+                            <input asp-for="Name" type="text" id="name" class="form-control" name="name" required>
+                            <span asp-validation-for="Name" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 offset-md-4">
+                        <button type="submit" class="btn btn-primary">Добавить категорию</button>
+                        <a class="btn-danger" asp-action="Index" asp-controller="Home">Отмена</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

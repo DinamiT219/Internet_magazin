@@ -1,0 +1,20 @@
+﻿@using System.Security.Claims
+@using Internet_magazin.Enums
+@{
+    if (Context.User.FindFirstValue("Role") != null)
+    {
+        switch (Context.User.FindFirstValue("Role"))
+        {
+            case "User":
+                Layout = "_UserRoleLayout";
+                break;
+            case "Admin":
+                Layout = "_AdminRoleLayout";
+                break;
+        }
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}

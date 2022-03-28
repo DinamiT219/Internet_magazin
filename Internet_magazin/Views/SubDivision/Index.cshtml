@@ -1,0 +1,24 @@
+﻿@model IEnumerable<SubDivision>
+
+<div>
+    <h1>
+        Все подкатегории в категории @Model.First().Division.Name
+    </h1>
+    @foreach (var d in Model)
+    {
+        <h2>
+            <a asp-controller="Item" asp-action="Index" asp-route-search="" asp-route-sort="Null"asp-route-subDivisionId=@d.Id>
+                @d.Name
+            </a>
+        </h2>
+        @if (Context.User.FindFirst("Role") != null && Context.User.FindFirst("Role").Value == "Admin")
+        {
+            <a class="btn-info p-2 rounded" asp-controller="SubDivision" asp-action="Update" asp-route-id=@d.Id>
+                Изменить
+            </a>
+            <a class="btn-danger p-2 rounded" asp-controller="SubDivision" asp-action="Delete" asp-route-id=@d.Id>
+                Удалить
+            </a>
+        }
+    }
+</div>

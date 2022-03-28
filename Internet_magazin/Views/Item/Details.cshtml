@@ -1,0 +1,60 @@
+﻿@model Item
+
+<style>
+    h1 {
+        font-family: 'Times New Roman', Times, serif; /* Гарнитура текста */
+        font-size: 200%; /* Размер шрифта в процентах */
+    }
+
+    h2 {
+        font-family: 'Times New Roman', Times, serif; /* Гарнитура текста */
+        font-size: 150%; /* Размер шрифта в процентах */
+    }
+</style>
+
+<div class="row mb-2">
+    <div class="col-5" align="left">
+        <img src=@Model.ImgPath height="350px" />
+    </div>
+    <div class="col-5" align="left">
+        <div class="row mb-2">
+            <h1>
+                @Model.Name
+            </h1>
+        </div>
+        <div class="row mb-2">
+            <h2>
+                Описание: @Model.Description
+            </h2>
+        </div>
+        <div class="row mb-2">
+            <h2>
+                Произваодитель: @Model.Manufacturer
+            </h2>
+        </div>
+        <div class="row mb-2">
+            <h2>
+                Цена: @Model.Price
+            </h2>
+        </div>
+        <div class="row mb-2">
+            <a class="btn-success p-2 rounded" asp-controller="ItemInCart" asp-action="add" asp-route-itemId=@Model.Id>
+                В корзину
+            </a>
+            по 1 шт.
+        </div>
+        @if (Context.User.FindFirst("Role") != null && Context.User.FindFirst("Role").Value == "Admin")
+        {
+            <div class="row mb-2">
+                <a class="btn-info p-2 rounded" asp-controller="Item" asp-action="Update" asp-route-Id=@Model.Id>
+                    Изменить
+                </a>
+            </div>
+            <div class="row mb-2">
+                <a class="btn-danger p-2 rounded" asp-controller="Item" asp-action="Delete" asp-route-Id=@Model.Id>
+                    Удалить
+                </a>
+            </div>
+        }
+    </div>
+</div>

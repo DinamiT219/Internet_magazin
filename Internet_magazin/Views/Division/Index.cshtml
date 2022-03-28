@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Division>
+
+<div>
+    <h1>
+        Все категории
+    </h1>
+    @foreach (var d in Model)
+    {
+        <div>
+            <h2>
+                <a asp-controller="SubDivision" asp-action="Index" asp-route-dId=@d.Id>
+                    @d.Name
+                </a>
+            </h2>
+            @if (Context.User.FindFirst("Role") != null && Context.User.FindFirst("Role").Value == "Admin")
+            {
+                <a class="btn-info p-2 rounded" asp-controller="Division" asp-action="Update" asp-route-id=@d.Id>
+                    Изменить
+                </a>
+                <a class="btn-danger p-2 rounded" asp-controller="Division" asp-action="Delete" asp-route-id=@d.Id>
+                    Удалить
+                </a>
+            }
+        </div>
+    }
+</div>

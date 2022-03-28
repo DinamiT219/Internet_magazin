@@ -1,0 +1,72 @@
+﻿@model Order
+
+<h2 class="mb-5">Изменение категории</h2>
+
+<div class="cotainer">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Update" asp-controller="Division" />
+                    <input asp-for="Id" type="hidden" />
+                    <input asp-for="Cost" type="hidden" />
+                    <input asp-for="Date" type="hidden" />
+                    <input asp-for="Count" type="hidden" />
+                    <div class="form-group row ">
+                        <label asp-for="AccountId" for="AccountId" class="col-md-4 col-form-label text-md-right">Id аккаунта клиента</label>
+                        <div class="col-md-6">
+                            <input asp-for="AccountId" type="text" id="AccountId" class="form-control" name="AccountId">
+                            <span asp-validation-for="AccountId" />
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label asp-for="BuyerName" for="BuyerName" class="col-md-4 col-form-label text-md-right">Имя клиента</label>
+                        <div class="col-md-6">
+                            <input asp-for="BuyerName" type="text" id="BuyerName" class="form-control" name="BuyerName" required>
+                            <span asp-validation-for="BuyerName" />
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label asp-for="BuyerLastName" for="BuyerLastName" class="col-md-4 col-form-label text-md-right">Фамилия клиента</label>
+                        <div class="col-md-6">
+                            <input asp-for="BuyerLastName" type="text" id="BuyerLastName" class="form-control" name="BuyerLastName" required>
+                            <span asp-validation-for="BuyerLastName" />
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label asp-for="Address" for="Address" class="col-md-4 col-form-label text-md-right">Адрес доставки</label>
+                        <div class="col-md-6">
+                            <input asp-for="Address" type="text" id="Address" class="form-control" name="Address" required>
+                            <span asp-validation-for="Address" />
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label asp-for="PhoneNumber" for="PhoneNumber" class="col-md-4 col-form-label text-md-right">Телефон клиента</label>
+                        <div class="col-md-6">
+                            <input asp-for="PhoneNumber" type="text" id="PhoneNumber" class="form-control" name="PhoneNumber" required>
+                            <span asp-validation-for="PhoneNumber" />
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label asp-for="Email" for="Email" class="col-md-4 col-form-label text-md-right">Эл. почта клиента</label>
+                        <div class="col-md-6">
+                            <input asp-for="Email" type="text" id="Email" class="form-control" name="Email">
+                            <span asp-validation-for="Email" />
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label asp-for="Сondition" for="Сondition" class="col-md-4 col-form-label text-md-right">Состояние заказа</label>
+                        <div class="col-md-6">
+                            <input asp-for="Сondition" type="text" id="Сondition" class="form-control" name="Сondition">
+                            <span asp-validation-for="Сondition" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 offset-md-4">
+                        <button type="submit" class="btn btn-primary">Изменить заказ</button>
+                        <a class="btn-danger" asp-action="Index" asp-controller="Home">Отмена</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

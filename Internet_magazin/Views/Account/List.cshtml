@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Account>
+<div>
+    @foreach (var acc in Model)
+    {
+        <div class="row mb-2">
+            <div class="col-2" align="left">
+                <h2>
+                    @acc.Role
+                </h2>
+            </div>
+            <div class="col-3" align="left">
+                <h2>
+                    @acc.Name
+                    @acc.LastName
+                </h2>
+            </div>
+            <div class="col-5" align="left">
+                <h2>
+                    @acc.Email
+                    @acc.PhoneNumber
+                </h2>
+            </div>
+            <div class="col-4" align="left">
+                <div class="row mb-2">
+                    <a class="btn-info p-2 rounded" asp-controller="Account" asp-action="Details" asp-route-Id=@acc.Id>
+                        Информация
+                    </a>
+                </div>
+                <div class="row mb-2">
+                    <a class="btn-info p-2 rounded" asp-controller="Account" asp-action="Update" asp-route-Id=@acc.Id>
+                        Изменить
+                    </a>
+                </div>
+                <div class="row mb-2">
+                    <a class="btn-danger p-2 rounded" asp-controller="Account" asp-action="Delete" asp-route-Id=@acc.Id>
+                        Удалить
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

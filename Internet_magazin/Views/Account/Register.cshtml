@@ -1,0 +1,75 @@
+﻿@model Internet_magazin.ViewModels.RegisterVM
+
+<h2 class="mb-5">Регистрация</h2>
+
+<div class="cotainer">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-action="Register" asp-controller="Account" />
+                    <div class="form-group row">
+                        <label asp-for="Login" for="Login" class="col-md-4 col-form-label text-md-right">Логин</label>
+                        <div class="col-md-6">
+                            <input asp-for="Login" type="text" id="Login" placeholder="Ваш логин" class="form-control" name="Login" required>
+                            <span asp-validation-for="Login" />
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label asp-for="Password" for="Password" class="col-md-4 col-form-label text-md-right">Пароль</label>
+                        <div class="col-md-6">
+                            <input asp-for="Password" type="password" id="Password" class="form-control" name="Password" required>
+                            <span asp-validation-for="Password" />
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label asp-for="Name" for="Name" class="col-md-4 col-form-label text-md-right">Имя</label>
+                        <div class="col-md-6">
+                            <input asp-for="Name" type="text" id="Name" class="form-control" name="Name" required>
+                            <span asp-validation-for="Name" />
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label asp-for="LastName" for="LastName" class="col-md-4 col-form-label text-md-right">Фамилия</label>
+                        <div class="col-md-6">
+                            <input asp-for="LastName" type="text" id="LastName" class="form-control" name="LastName" required>
+                            <span asp-validation-for="LastName" />
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label asp-for="Address" for="Address" class="col-md-4 col-form-label text-md-right">Адрес для доставки</label>
+                        <div class="col-md-6">
+                            <input asp-for="Address" type="text" id="Address" class="form-control" name="Address" required>
+                            <span asp-validation-for="Address" />
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label asp-for="PhoneNumber" for="PhoneNumber" class="col-md-4 col-form-label text-md-right">Телефон</label>
+                        <div class="col-md-6">
+                            <input asp-for="PhoneNumber" type="text" id="PhoneNumber" class="form-control" name="PhoneNumber" required>
+                            <span asp-validation-for="PhoneNumber" />
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label asp-for="Email" for="Email" class="col-md-4 col-form-label text-md-right">Эл. почта</label>
+                        <div class="col-md-6">
+                            <input asp-for="Email" type="text" id="Email" class="form-control" name="Email" required>
+                            <span asp-validation-for="Email" />
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label asp-for="AttachCart" for="AttachCart" class="col-md-4 col-form-label text-md-right">Поставьте галочу для привязки текущей корзины к аккаунту, если она есть</label>
+                        <div class="col-md-6">
+                            <input asp-for="AttachCart" type="checkbox" id="AttachCart" class="form-control" name="AttachCart">
+                            <span asp-validation-for="AttachCart" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 offset-md-4">
+                        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                        <a class="btn-danger" asp-action="Index" asp-controller="Home">Отмена</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
